@@ -1,0 +1,110 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+:root {
+	--bg-clr: #3e3e3e;
+}
+
+body {
+	background-color: var(--bg-clr);
+	font-family: Prata;
+}
+
+main {
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-height: 100vh;
+
+	background-image: radial-gradient(rgba(255, 255, 255, 0.07) 9%, transparent 9%);
+	background-position: 0% 0%;
+	background-size: 9vmin 9vmin;
+
+	transition: 600ms;
+}
+
+main::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background-image: 
+        linear-gradient(to right, rgba(253, 188, 67, 0.808) 40%, transparent), 
+        url(https://unsplash.it/1024/800);
+
+	background-repeat: no-repeat;
+	background-size: 130% 130%;
+    background-position: center 50%;
+    transition: 600ms;
+	opacity: 0.15;
+}
+
+main:has(nav:hover) {
+	background-size: 8.6vmin 8.6vmin;
+}
+
+main:has(nav:hover)::before {
+	background-size: 120% 120%;
+    opacity: .1;
+}
+
+main[data-active-index='0'] {
+	background-position: 0% -5%;
+}
+
+main[data-active-index='1'] {
+    background-position: 0% -10%;
+}
+
+main[data-active-index='2'] {
+    background-position: 0% -15%;
+}
+
+main[data-active-index='3'] {
+    background-position: 0% -20%;
+}
+
+main[data-active-index='0']::before {
+    background-position: center 45%;
+}
+
+main[data-active-index='1']::before {
+	background-position: center 55%;
+}    
+
+main[data-active-index='2']::before {
+	background-position: center 65%;
+}    
+
+main[data-active-index='3']::before {
+	background-position: center 75%;
+}
+
+nav {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	padding-inline-start: clamp(4em, 10vw, 300px);
+}
+
+nav:hover a {
+	opacity: 0.3;
+}
+
+nav a {
+	color: rgb(232, 232, 232);
+	font-size: 3em;
+	text-decoration: none;
+	cursor: pointer;
+
+	transition: 600ms;
+    transform-origin: center left;
+}
+
+nav a:hover {
+	opacity: 1;
+    scale: 1.05;
+}
