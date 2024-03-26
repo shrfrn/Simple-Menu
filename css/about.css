@@ -1,3 +1,8 @@
+:root {
+    --gradient-x: 0;
+    --gradient-y: 0;
+}
+
 body {
     background-color: var(--bg-clr);
 }
@@ -22,13 +27,14 @@ main nav {
     overflow: hidden;
 
     word-wrap: break-word;
-    color: whitesmoke;
+    color: lightgray;
     font-family: monospace;
 
     mask-image: radial-gradient(
-        circle at 100px 100px, 
-        rgb(255 255 255) 20%, 
-        rgb(255 255 255 / 25%), 
+        circle at var(--gradient-x) var(--gradient-y), 
+        rgb(255 255 255) 1%, 
+        rgb(255 255 255 / 15%) 25%, 
+        rgb(255 255 255 / 15%), 
         transparent
       );
     pointer-events: none;
@@ -38,11 +44,11 @@ nav {
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
-	padding-inline-start: clamp(4em, 10vw, 300px);
+	padding: clamp(4em, 10vw, 300px);
 }
 
 nav:hover a {
-	opacity: 0.3;
+	opacity: 0.8;
 }
 
 nav a {
@@ -57,6 +63,6 @@ nav a {
 
 nav a:hover {
 	opacity: 1;
-    scale: 1.05;
+    scale: 2;
 }
 

@@ -4,15 +4,19 @@ function onLoad() {
 	const elMain = document.querySelector('main')
 	const elLinks = document.querySelectorAll('nav a')
 	elLinks.forEach(elLink => elLink.addEventListener('mouseenter', ev => shuffleText(ev)))
-	addEventListener('mousemove', throttle((ev) => {
+    
+	addEventListener('mousemove', throttle(({ clientX, clientY }) => {
 		const chars = 'abcdefghijklmnopqrstuvwxyz0123456789@%$&_'
 		var txt = ''
 
 		for (var i = 0; i < 22000; i++) {
 			txt += chars.at(getRandomInt(0, chars.length))
 		}
-		// elMain.dataset.bgText = txt
 		document.querySelector('.bg-text').innerText = txt
+
+        document.documentElement.style.setProperty('--gradient-x', clientX + 'px')
+        document.documentElement.style.setProperty('--gradient-y', clientY + 'px')
+
 	}, 30))
 }
 
