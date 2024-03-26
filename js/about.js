@@ -8,7 +8,7 @@ function onLoad() {
 		const chars = 'abcdefghijklmnopqrstuvwxyz0123456789@%$&_'
 		var txt = ''
 
-		for (var i = 0; i < 8000; i++) {
+		for (var i = 0; i < 22000; i++) {
 			txt += chars.at(getRandomInt(0, chars.length))
 		}
 		// elMain.dataset.bgText = txt
